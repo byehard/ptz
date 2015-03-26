@@ -137,8 +137,73 @@ function fetch_tbl () {
         });
 };
 
-
 $(function() {
         fetch_to_dest();
+        fetch_to_dest_mob();
 });
 
+function fetch_to_dest_mob () {
+    var from_dest = $("#from_sel_mob option:selected").text();
+
+    $.ajax({
+            type: "GET",
+            url: "dest.php",
+            dataType: "json",
+            data: {
+                from: from_dest
+            },
+            success: function(data) {
+                $('#to_sel_mob').empty();
+                $('#to_sel_mob').append($("<option selected disabled>Выберите</option>")); 
+                $.each(data, function(key, value) {
+                        $('#to_sel_mob').append($("<option></option>").text(value)); 
+                    });
+
+                $('#to_sel_mob').selectpicker('refresh');
+                fetch_tbl_mob();
+            }
+            
+        });
+};
+
+function fetch_tbl_mob () {
+    var from_dest = $("#from_sel_mob option:selected").text();
+    var to_dest = $("#to_sel_mob option:selected").text();
+
+    if (to_dest == "Выберите")
+        return;
+
+    $.ajax({
+            type: "GET",
+            url: "tabledata.php",
+            dataType: "json",
+            data: {
+                from: from_dest,
+                to: to_dest
+            },
+            success: function(data) {
+                $('#mob_table').empty();
+                $.each(data, function(i, d) {
+                        var s = 
+                            '<div class="schedule-block">' +
+                            '<div class="number-bus">' +
+                            '<i class="fa fa-bus"></i> ' + d[1] +
+                            '</div>' +
+                            '<div class="time-info pull-right">' +
+                            '<p><i class="fa fa-sign-out"></i> ' + d[4] +
+                            '</p>' +
+                            '<p><i class="fa fa-sign-in"></i> ' + d[5] +
+                            '</p>' +
+                            '</div>' + 
+                            '<div class="more-info">' +
+                            '<button type="button" class="info collapsed" data-toggle="collapse" data-target="#info' + i + '" aria-expanded="false" aria-controls="info">' +
+                            '<i id="info-ico" class="fa fa-chevron-down pull-right"></i>' +
+                            '</button>' +
+                            '</div>' +
+                            '<div id="info' + i +'" class="info collapse">1</div>' +
+                            '</div>';
+                        $('#mob_table').append(s);
+                    });
+            }
+        });
+};
