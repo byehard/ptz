@@ -25,12 +25,21 @@ if ($result = mysqli_query($link, $q_from_dest)) {
     <title>Расписание | Карелавтотранс</title>
 
     <script src="jquery-2.1.1.min.js"></script>
+<<<<<<< HEAD
      <script type="text/javascript"> 
      $('.selectpicker').selectpicker({ 
          style: 'btn-info', 
         size: 6 
      });
     </script> 
+=======
+    <!-- <script type="text/javascript"> -->
+    <!-- $('.selectpicker').selectpicker({ -->
+    <!--       style: 'btn&#45;info', -->
+    <!--       size: 4 -->
+    <!--   }); -->
+    <!-- </script> -->
+>>>>>>> origin/master
 
   <script src="js/bootstrap-select.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -206,6 +215,7 @@ if ($result = mysqli_query($link, $q_from_dest)) {
                 <div id="mob_table">
                 </div>
 
+<<<<<<< HEAD
       <!--  <div class="schedule-block"> -->
       <!--  <div class="number-bus"><i class="fa fa-bus"></i> 200</div> -->
       <!--   <div class="time-info pull-right"> -->
@@ -215,11 +225,23 @@ if ($result = mysqli_query($link, $q_from_dest)) {
       <!--   <div class="more-info"> -->
       <!--     <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="info"> -->
       <!--     <i id="info-ico" class="fa fa-chevron-down pull-right"></i> -->
+=======
+      <!--  <div class="schedule&#45;block"> -->
+      <!--  <div class="number&#45;bus"><i class="fa fa&#45;bus"></i> 200</div> -->
+      <!--   <div class="time&#45;info pull&#45;right"> -->
+      <!--     <p><i class="fa fa&#45;sign&#45;out"></i> 10:00</p> -->
+      <!--     <p><i class="fa fa&#45;sign&#45;in"></i> 18:00</p> -->
+      <!--   </div> -->
+      <!--   <div class="more&#45;info"> -->
+      <!--     <button type="button" class="info collapsed" data&#45;toggle="collapse" data&#45;target="#info" aria&#45;expanded="false" aria&#45;controls="info"> -->
+      <!--     <i id="info&#45;ico" class="fa fa&#45;chevron&#45;down pull&#45;right"></i> -->
+>>>>>>> origin/master
       <!--     </button> -->
       <!--   </div> -->
       <!-- <div id="info" class="info collapse">1</div> -->
       <!-- </div> -->
 
+<<<<<<< HEAD
       <!-- <div class="schedule-block"> -->
       <!--  <div class="number-bus"><i class="fa fa-bus"></i> 200</div> -->
       <!--   <div class="time-info pull-right"> -->
@@ -229,10 +251,22 @@ if ($result = mysqli_query($link, $q_from_dest)) {
       <!--   <div class="more-info"> -->
       <!--     <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info2" aria-expanded="false" aria-controls="info2"> -->
       <!--     <i id="info-ico" class="fa fa-chevron-down pull-right"></i> -->
+=======
+      <!-- <div class="schedule&#45;block"> -->
+      <!--  <div class="number&#45;bus"><i class="fa fa&#45;bus"></i> 200</div> -->
+      <!--   <div class="time&#45;info pull&#45;right"> -->
+      <!--     <p><i class="fa fa&#45;sign&#45;out"></i> 10:00</p> -->
+      <!--     <p><i class="fa fa&#45;sign&#45;in"></i> 18:00</p> -->
+      <!--   </div> -->
+      <!--   <div class="more&#45;info"> -->
+      <!--     <button type="button" class="info collapsed" data&#45;toggle="collapse" data&#45;target="#info2" aria&#45;expanded="false" aria&#45;controls="info2"> -->
+      <!--     <i id="info&#45;ico" class="fa fa&#45;chevron&#45;down pull&#45;right"></i> -->
+>>>>>>> origin/master
       <!--     </button> -->
       <!--   </div> -->
       <!-- <div id="info2" class="info collapse">1</div> -->
       <!-- </div> -->
+<<<<<<< HEAD
       <!-- <div class="schedule-block"> -->
       <!--  <div class="number-bus"><i class="fa fa-bus"></i> 200</div> -->
       <!--   <div class="time-info pull-right"> -->
@@ -242,6 +276,17 @@ if ($result = mysqli_query($link, $q_from_dest)) {
       <!--   <div class="more-info"> -->
       <!--     <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info3" aria-expanded="false" aria-controls="info3"> -->
       <!--     <i id="info-ico" class="fa fa-chevron-down pull-right"></i> -->
+=======
+      <!-- <div class="schedule&#45;block"> -->
+      <!--  <div class="number&#45;bus"><i class="fa fa&#45;bus"></i> 200</div> -->
+      <!--   <div class="time&#45;info pull&#45;right"> -->
+      <!--     <p><i class="fa fa&#45;sign&#45;out"></i> 10:00</p> -->
+      <!--     <p><i class="fa fa&#45;sign&#45;in"></i> 18:00</p> -->
+      <!--   </div> -->
+      <!--   <div class="more&#45;info"> -->
+      <!--     <button type="button" class="info collapsed" data&#45;toggle="collapse" data&#45;target="#info3" aria&#45;expanded="false" aria&#45;controls="info3"> -->
+      <!--     <i id="info&#45;ico" class="fa fa&#45;chevron&#45;down pull&#45;right"></i> -->
+>>>>>>> origin/master
       <!--     </button> -->
       <!--   </div> -->
       <!-- <div id="info3" class="info collapse">1</div> -->

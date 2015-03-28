@@ -184,6 +184,7 @@ function fetch_tbl_mob () {
             success: function(data) {
                 $('#mob_table').empty();
                 $.each(data, function(i, d) {
+<<<<<<< HEAD
 
                     var days = d[6].split(' ');
 
@@ -195,6 +196,8 @@ function fetch_tbl_mob () {
                             "<div class=\"day_" + (days[4]=='0'? "off": "on") + "\">пт</div>" +
                             "<div class=\"day_" + (days[5]=='0'? "off": "on") + "\">сб</div>" +
                             "<div class=\"day_" + (days[6]=='0'? "off": "on") + "\">вс</div>";
+=======
+>>>>>>> origin/master
                         var s = 
                             '<div class="schedule-block">' +
                             '<div class="number-bus">' +
@@ -207,6 +210,7 @@ function fetch_tbl_mob () {
                             '</p>' +
                             '</div>' + 
                             '<div class="more-info">' +
+<<<<<<< HEAD
                             '<div class="info collapsed" data-toggle="collapse" data-target="#info' + i + '" aria-expanded="false" aria-controls="info">' +
                             '<i id="info-ico" class="fa fa-chevron-down pull-right"></i>' +
                             '</div>' +
@@ -218,9 +222,20 @@ function fetch_tbl_mob () {
 
 
                             '</div>' +
+=======
+                            '<button type="button" class="info collapsed" data-toggle="collapse" data-target="#info' + i + '" aria-expanded="false" aria-controls="info">' +
+                            '<i id="info-ico" class="fa fa-chevron-down pull-right"></i>' +
+                            '</button>' +
+                            '</div>' +
+                            '<div id="info' + i +'" class="info collapse">1</div>' +
+>>>>>>> origin/master
                             '</div>';
                         $('#mob_table').append(s);
                     });
             }
         });
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> origin/master
