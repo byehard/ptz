@@ -1,11 +1,8 @@
 <?php
 require("config.php");
 header('Content-Type: text/html; charset=utf-8');
-
 $link = db_connect();
-
 $q_from_dest = "SELECT `from` FROM timetable GROUP BY `from`;";
-
 $from_dest = array();
 if ($result = mysqli_query($link, $q_from_dest)) {
     while ($row = mysqli_fetch_row($result)) {
@@ -13,7 +10,6 @@ if ($result = mysqli_query($link, $q_from_dest)) {
     }
     mysqli_free_result($result);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +25,12 @@ if ($result = mysqli_query($link, $q_from_dest)) {
     <title>Расписание | Карелавтотранс</title>
 
     <script src="jquery-2.1.1.min.js"></script>
-    <script type="text/javascript">
-    $('.selectpicker').selectpicker({
-          style: 'btn-info',
-          size: 4
-      });
-    </script>
+     <script type="text/javascript"> 
+     $('.selectpicker').selectpicker({ 
+         style: 'btn-info', 
+        size: 6 
+     });
+    </script> 
 
   <script src="js/bootstrap-select.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -193,7 +189,7 @@ if ($result = mysqli_query($link, $q_from_dest)) {
      <div class="row-fluid">
      <div class="col-lg-3">
         <p>Откуда:
-        <select class="selectpicker" id="from_sel" onchange="fetch_to_dest();">
+        <select class="selectpicker" id="from_sel_mob" onchange="fetch_to_dest_mob();">
             <?php
             foreach ($from_dest as $d) 
             if ($d == "Петрозаводск")
@@ -203,50 +199,53 @@ if ($result = mysqli_query($link, $q_from_dest)) {
             ?>
             </select></p>
             <p>Куда:   
-            <select class="selectpicker" id="to_sel" onchange="fetch_tbl();"></select>
+            <select class="selectpicker" id="to_sel_mob" onchange="fetch_tbl_mob();"></select>
                 </p>
 
 
+                <div id="mob_table">
+                </div>
 
-       <div class="schedule-block">
-       <div class="number-bus"><i class="fa fa-bus"></i> 200</div>
-        <div class="time-info pull-right">
-          <p><i class="fa fa-sign-out"></i> 10:00</p>
-          <p><i class="fa fa-sign-in"></i> 18:00</p>
-        </div>
-        <div class="more-info">
-          <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="info">
-          <i id="info-ico" class="fa fa-chevron-down pull-right"></i>
-          </button>
-        </div>
-      <div id="info" class="info collapse">1</div>
-      </div>
-      <div class="schedule-block">
-       <div class="number-bus"><i class="fa fa-bus"></i> 200</div>
-        <div class="time-info pull-right">
-          <p><i class="fa fa-sign-out"></i> 10:00</p>
-          <p><i class="fa fa-sign-in"></i> 18:00</p>
-        </div>
-        <div class="more-info">
-          <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info2" aria-expanded="false" aria-controls="info2">
-          <i id="info-ico" class="fa fa-chevron-down pull-right"></i>
-          </button>
-        </div>
-      <div id="info2" class="info collapse">1</div>
-      </div>
-      <div class="schedule-block">
-       <div class="number-bus"><i class="fa fa-bus"></i> 200</div>
-        <div class="time-info pull-right">
-          <p><i class="fa fa-sign-out"></i> 10:00</p>
-          <p><i class="fa fa-sign-in"></i> 18:00</p>
-        </div>
-        <div class="more-info">
-          <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info3" aria-expanded="false" aria-controls="info3">
-          <i id="info-ico" class="fa fa-chevron-down pull-right"></i>
-          </button>
-        </div>
-      <div id="info3" class="info collapse">1</div>
-      </div>
+      <!--  <div class="schedule-block"> -->
+      <!--  <div class="number-bus"><i class="fa fa-bus"></i> 200</div> -->
+      <!--   <div class="time-info pull-right"> -->
+      <!--     <p><i class="fa fa-sign-out"></i> 10:00</p> -->
+      <!--     <p><i class="fa fa-sign-in"></i> 18:00</p> -->
+      <!--   </div> -->
+      <!--   <div class="more-info"> -->
+      <!--     <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="info"> -->
+      <!--     <i id="info-ico" class="fa fa-chevron-down pull-right"></i> -->
+      <!--     </button> -->
+      <!--   </div> -->
+      <!-- <div id="info" class="info collapse">1</div> -->
+      <!-- </div> -->
+
+      <!-- <div class="schedule-block"> -->
+      <!--  <div class="number-bus"><i class="fa fa-bus"></i> 200</div> -->
+      <!--   <div class="time-info pull-right"> -->
+      <!--     <p><i class="fa fa-sign-out"></i> 10:00</p> -->
+      <!--     <p><i class="fa fa-sign-in"></i> 18:00</p> -->
+      <!--   </div> -->
+      <!--   <div class="more-info"> -->
+      <!--     <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info2" aria-expanded="false" aria-controls="info2"> -->
+      <!--     <i id="info-ico" class="fa fa-chevron-down pull-right"></i> -->
+      <!--     </button> -->
+      <!--   </div> -->
+      <!-- <div id="info2" class="info collapse">1</div> -->
+      <!-- </div> -->
+      <!-- <div class="schedule-block"> -->
+      <!--  <div class="number-bus"><i class="fa fa-bus"></i> 200</div> -->
+      <!--   <div class="time-info pull-right"> -->
+      <!--     <p><i class="fa fa-sign-out"></i> 10:00</p> -->
+      <!--     <p><i class="fa fa-sign-in"></i> 18:00</p> -->
+      <!--   </div> -->
+      <!--   <div class="more-info"> -->
+      <!--     <button type="button" class="info collapsed" data-toggle="collapse" data-target="#info3" aria-expanded="false" aria-controls="info3"> -->
+      <!--     <i id="info-ico" class="fa fa-chevron-down pull-right"></i> -->
+      <!--     </button> -->
+      <!--   </div> -->
+      <!-- <div id="info3" class="info collapse">1</div> -->
+      <!-- </div> -->
 
 
 

@@ -137,8 +137,90 @@ function fetch_tbl () {
         });
 };
 
-
 $(function() {
         fetch_to_dest();
+        fetch_to_dest_mob();
 });
 
+function fetch_to_dest_mob () {
+    var from_dest = $("#from_sel_mob option:selected").text();
+
+    $.ajax({
+            type: "GET",
+            url: "dest.php",
+            dataType: "json",
+            data: {
+                from: from_dest
+            },
+            success: function(data) {
+                $('#to_sel_mob').empty();
+                $('#to_sel_mob').append($("<option selected disabled>Выберите</option>")); 
+                $.each(data, function(key, value) {
+                        $('#to_sel_mob').append($("<option></option>").text(value)); 
+                    });
+
+                $('#to_sel_mob').selectpicker('refresh');
+                fetch_tbl_mob();
+            }
+            
+        });
+};
+
+function fetch_tbl_mob () {
+    var from_dest = $("#from_sel_mob option:selected").text();
+    var to_dest = $("#to_sel_mob option:selected").text();
+
+    if (to_dest == "Выберите")
+        return;
+
+    $.ajax({
+            type: "GET",
+            url: "tabledata.php",
+            dataType: "json",
+            data: {
+                from: from_dest,
+                to: to_dest
+            },
+            success: function(data) {
+                $('#mob_table').empty();
+                $.each(data, function(i, d) {
+
+                    var days = d[6].split(' ');
+
+                        var days_html = 
+                            "<div class=\"day_" + (days[0]=='0'? "off": "on") + "\">пн</div>" +
+                            "<div class=\"day_" + (days[1]=='0'? "off": "on") + "\">вт</div>" +
+                            "<div class=\"day_" + (days[2]=='0'? "off": "on") + "\">ср</div>" +
+                            "<div class=\"day_" + (days[3]=='0'? "off": "on") + "\">чт</div>" +
+                            "<div class=\"day_" + (days[4]=='0'? "off": "on") + "\">пт</div>" +
+                            "<div class=\"day_" + (days[5]=='0'? "off": "on") + "\">сб</div>" +
+                            "<div class=\"day_" + (days[6]=='0'? "off": "on") + "\">вс</div>";
+                        var s = 
+                            '<div class="schedule-block">' +
+                            '<div class="number-bus">' +
+                            '<i class="fa fa-bus"></i> ' + d[1] +
+                            '</div>' +
+                            '<div class="time-info pull-right">' +
+                            '<p><i class="fa fa-sign-out"></i> ' + d[4] +
+                            '</p>' +
+                            '<p><i class="fa fa-sign-in"></i> ' + d[5] +
+                            '</p>' +
+                            '</div>' + 
+                            '<div class="more-info">' +
+                            '<div class="info collapsed" data-toggle="collapse" data-target="#info' + i + '" aria-expanded="false" aria-controls="info">' +
+                            '<i id="info-ico" class="fa fa-chevron-down pull-right"></i>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div id="info' + i +'" class="info collapse">'+ '<center>' + days_html + '</center>' +
+                            '<div class="info-price">Цена:' + d[7] +'<i class="fa fa-rub fa-0.1x"></i>' + d[8] + '<i class="fa fa-rub"></i>' + '</div>' +
+                            '<div class="info-steps">Остановки:'+ d[12] + '</div>' +
+                                '</div>' + 
+
+
+                            '</div>' +
+                            '</div>';
+                        $('#mob_table').append(s);
+                    });
+            }
+        });
+};
